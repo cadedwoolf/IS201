@@ -1,0 +1,84 @@
+body {
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: antiquewhite;
+}
+.header {
+    background-color: wheat;
+    text-align: center;
+    padding: 20px;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+}
+
+footer {
+    background-color: aquamarine;
+
+}
+
+img {
+    float: inline-end;
+    width: 30%;
+}
+
+h3 {
+    text-decoration: underline;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+#youtube {
+    float: right;
+    width: auto fit-content;
+
+}
+
+.leftsidebestside {
+    width: 60%;
+}
+
+p {
+    width: 60%;
+    margin-left: 50px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.rightsidebestside {
+    float: right;
+}
+
+.bodyblocks{
+    padding-top: 10px;
+}
+
+.block{
+    padding: 10px;
+    margin: 10px;
+    background-color: cornsilk;
+    overflow: auto;
+}
+
+.boxyborder {
+    border-color:coral;
+    border-width: 5px;
+    border-style:dotted;
+}
+
+nav {
+    background-color: rgb(163, 171, 179);
+    height: 20px;
+    width: auto fit-content;
+
+}
+
+nav a {
+    text-decoration: none;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+nav a:hover {
+    background-color:pink ;
+}

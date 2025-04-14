@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Wordle Game</title>
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <a href="index.html" class="home-link">🏠 Home</a>
+
+<h1>Mini Wordle</h1>
+<div class="scoreboard">
+  Wins: <span id="wins">0</span> |
+  Losses: <span id="losses">0</span>
+</div>
+
+<div class="board" id="board"></div>
+
+<input type="text" id="guessInput" maxlength="5" placeholder="Enter word">
+
+<div class="button-group">
+  <button onclick="submitGuess()">Guess</button>
+  <button id="playAgainBtn" onclick="startNewGame()" style="display:none;">Play Again</button>
+</div>
+
+<div class="message" id="message"></div>
+
+<script>
+  const wordList = ["APPLE", "GRAPE", "PEACH", "BERRY", "MANGO", "LEMON", "PLUMB", "CHERRY", "MELON", "GUAVA"];
+  let secretWord = "";
+  const maxGuesses = 6;
+  let guesses = [];
+  let wins = 0;
+  let losses = 0;
+
+  function chooseRandomWord() {
+    return wordList[Math.floor(Math.random() * wordList.length)];
+  }
+
+  function submitGuess() {
+    const input = document.getElementById('guessInput');
+    const guess = input.value.toUpperCase();
+    const board = document.getElementById('board');
+    const message = document.getElementById('message');
+
+    if (guess.length !== 5) {
+      message.textContent = "Word must be 5 letters!";
+      return;
+    }
+
+    if (guesses.length >= maxGuesses) {
+      message.textContent = "Game over! The word was " + secretWord;
+      losses++;
+      document.getElementById('losses').textContent = losses;
+      document.getElementById('playAgainBtn').style.display = "inline-block";
+      return;
+    }
+
+    for (let i = 0; i < 5; i++) {
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      cell.textContent = guess[i];
+
+      if (guess[i] === secretWord[i]) {
+        cell.classList.add('correct');
+      } else if (secretWord.includes(guess[i])) {
+        cell.classList.add('present');
+      } else {
+        cell.classList.add('absent');
+      }
+
+      board.appendChild(cell);
+    }
+
+    guesses.push(guess);
+    input.value = "";
+    message.textContent = "";
+
+    if (guess === secretWord) {
+      message.textContent = "🎉 You guessed it!";
+      wins++;
+      document.getElementById('wins').textContent = wins;
+      document.getElementById('playAgainBtn').style.display = "inline-block";
+    } else if (guesses.length === maxGuesses) {
+      message.textContent = "Out of tries! The word was " + secretWord;
+      losses++;
+      document.getElementById('losses').textContent = losses;
+      document.getElementById('playAgainBtn').style.display = "inline-block";
+    }
+  }
+
+  function startNewGame() {
+    guesses = [];
+    document.getElementById('board').innerHTML = "";
+    document.getElementById('message').textContent = "";
+    document.getElementById('guessInput').value = "";
+    document.getElementById('playAgainBtn').style.display = "none";
+    secretWord = chooseRandomWord();
+  }
+
+  // Start the first game automatically
+  startNewGame();
+</script>
+
+</body>
+</html>

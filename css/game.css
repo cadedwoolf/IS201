@@ -1,0 +1,107 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: Arial, sans-serif;
+    background-color: #121213;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 10px;
+    color: #6aaa64;
+  }
+  
+  .scoreboard {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .board {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .cell {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #3a3a3c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    background-color: #121213;
+    color: white;
+  }
+  
+  .correct {
+    background-color: #538d4e;
+    border-color: #538d4e;
+  }
+  
+  .present {
+    background-color: #b59f3b;
+    border-color: #b59f3b;
+  }
+  
+  .absent {
+    background-color: #3a3a3c;
+    border-color: #3a3a3c;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    width: 120px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .button-group {
+    margin: 20px 0;
+    display: flex;
+    gap: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #6aaa64;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #538d4e;
+  }
+  
+  .message {
+    margin-top: 15px;
+    font-size: 1.2rem;
+  }
+  
+  .home-link {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    text-decoration: none;
+    color: #6aaa64;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .home-link:hover {
+    color: #538d4e;
+  }
+  
